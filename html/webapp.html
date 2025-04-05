@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle Generator</title>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f5e67a;
+        }
+        .container{
+            background-color: antiquewhite;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        button{
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #a384cd;
+            color: rgb(211, 209, 209);
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: #c16ae9;
+        }
+    </style>
+</head>
+<body>
+    <a id="top" class="a" href="#"> Something</a> |
+    <a class="a" href="fromscratch.html"> Language of Flowers</a> |
+    <a class="a" href="../index.html">Resume</a>
+
+    <div class="container">
+        <h1>Riddle Generator</h1>
+        <p id="riddle">Click below to get a riddle!</p>
+        <button id="riddleButton">New Riddle</button>
+        <p><strong>Answer:</strong> <span id="answer" style="display:none;">Click "Show Answer" to reveal!</span></p>
+        <button id="answerButton" style="background-color: #b39ced;">Show Answer</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const riddles = [
+                { question: "What has to be broken before you can use it?", answer: "An egg." },
+                { question: "I'm tall when I'm young, and I'm short when I'm old. What am I?", answer: "A candle." },
+                { question: "What is full of holes but still holds water?", answer: "A sponge." },
+                { question: "What can travel around the world while staying in the same spot?", answer: "A stamp." },
+                { question: "The more you take, the more you leave behind. What am I?", answer: "Footsteps." }
+            ];
+
+            const riddleText = document.getElementById("riddle");
+            const answerText = document.getElementById("answer");
+            const riddleButton = document.getElementById("riddleButton");
+            const answerButton = document.getElementById("answerButton");
+
+            riddleButton.addEventListener("click", function() {
+                let randomIndex = Math.floor(Math.random() * riddles.length);
+                let selectedRiddle = riddles[randomIndex];
+                riddleText.textContent = selectedRiddle.question;
+                answerText.textContent = selectedRiddle.answer;
+                answerText.style.display = "none";
+            });
+
+            answerButton.addEventListener("click", function() {
+                answerText.style.display = "inline";
+            });
+        });
+    </script>
+</body>
+</html>

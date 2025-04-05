@@ -1,0 +1,19 @@
+.background{background-color: rgb(211, 211, 201)}
+.font{font-family: cursive; color: black;}
+.a{font-family: cursive; color: black; text-decoration: none;}
+.right-menu{ font-family: cursive; color: black; position: absolute;
+    right: 0;
+    top: 70px;
+    width: 150px;
+    height: 100vh;
+    @media (max-width: 768px) {
+        .right-menu {
+          position: relative;
+          width: 50%;
+          height: auto;
+            }
+        }
+    }   
+.bold{
+    font-weight: bolder;
+}
